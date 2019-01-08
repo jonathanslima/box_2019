@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Criptor</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<header>
+				<h1>Criptor</h1>
+			</header>
+
+			<form action="" id="form" class="col-md-6">
+				<div class="form-group">
+					<label>Password</label>
+					<input type="" name="" id="dataCrypt" class="form-control"><br>
+					<button type="button" id="cryptPass" class="btn btn-primary">Criptografar</button><br><br>
+
+					<p class="alert alert-success">Password encrypted: <mark id="passC"></mark></p>
+				</div>
+			</form>
+
+			<form action="" id="form" class="col-md-6">
+				<div class="form-group">
+					<label>Código</label>
+					<input type="" name="" id="dataDecrypt" class="form-control"><br>
+					<button id="decryptPass" class="btn btn-primary">Descriptografar</button><br><br>
+
+					<p class="alert alert-success">Password decrypted: <mark id="passD"></mark></p>
+				</div>
+			</form>
+		</div>
+	</div>
+	<script type="text/javascript">
+		var PswData = function(){
+		    this.alpha = 'abcdefghijklmnopqrstuvxwyzABCDEFGHIJKLMNOPQRSTUWXYZ0123456789.-_@ ()',
+		    this.finalPass = '',
+		    this.newLetter = '',
+		    this.j = '',
+		    this.n = ''
+		};
+
+		var cryptPass, decryptPass, expression;
+		cryptPass = document.querySelector('#cryptPass');
+		decryptPass = document.querySelector('#decryptPass');
+
+		cryptPass.addEventListener('click', function(e){e.preventDefault(); cryptor(3)});
+		decryptPass.addEventListener('click', function(e){e.preventDefault(); decryptor(3)});
+
+		function decryptor(value){
+			var decrypt = new PswData();
+			expression = document.querySelector('#dataDecrypt').value;
+			decrypt.expression = expression;
+			var expression = decrypt.expression;
+		    var alpha = decrypt.alpha;
+		    var finalPass = decrypt.finalPass;
+		    var newLetter = decrypt.newLetter;
+		    var j = decrypt.j;
+		    var n = decrypt.n;
+
+		    alpha = alpha.split('');
+		    expression = expression.split('');
+
+		    expression.forEach(function(letter){
+		        for(i = 0; i < alpha.length; i++){
+		            if(letter == alpha[i]){
+						j = i - value;
+						newLetter = alpha[j];
+
+		            	if(newLetter == undefined){
+			                finalPass += alpha[alpha.length - (value - i)];	
+			            }else{
+			                finalPass += newLetter;
+			            }
+		            }
+		        }
+		    });
+		    console.log('Decrypt: ', finalPass);
+		    document.querySelector('#passD').textContent = finalPass;
+		}
+
+		function cryptor(value){
+			var crypt = new PswData();
+		    expression = document.querySelector('#dataCrypt').value;
+			crypt.expression = expression;
+			var expression = crypt.expression;
+		    var alpha = crypt.alpha;
+		    var finalPass = crypt.finalPass;
+		    var newLetter = crypt.newLetter;
+		    var j = crypt.j;
+		    var n = crypt.n;
+
+		    alpha = alpha.split('');
+		    expression = expression.split('');
+
+		    expression.forEach(function(letter){
+		        for(i = 0; i < alpha.length; i++){
+		            if(letter == alpha[i]){
+		            	j = i + value;
+		            	newLetter = alpha[j];
+
+		                if(newLetter == undefined){
+			                finalPass += alpha[value - (alpha.length - i)];	
+			            }else{
+			                finalPass += newLetter;
+			            }
+		            }
+		        }
+		    });
+		    console.log('Crypt: ', finalPass);
+		    document.querySelector('#passC').textContent = finalPass;
+		}
+	</script>
+</body>
+</html>
