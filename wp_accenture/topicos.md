@@ -13,13 +13,14 @@
 		b. Download wordpress  
 		c. Painel básico**
 
-3. Painel completo  
+**3. Painel completo  
 	a. Painel avançado  
-	b. Plugin básico  
+	b. Plugin básico**
 
-4. Getting started  
-	a. Primeiros códigos  
-	b. Entendendo arquivos  
+**4. Getting started  
+	a. Primeiros códigos**
+	b. Entendendo arquivos
+	c. Criando primeiros códigos.
 
 5. Avançando no WP  
 	a. Loops  
