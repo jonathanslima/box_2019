@@ -1,5 +1,23 @@
 #TAREFINHAS
 
+MODULOS FINAL PT-1
+
+1. Criar pagina single de categoria e/ ou tag
+2. Criar loop com post type
+3. Usar o plugin wp-navi para fazer paginação
+4. Trocar pasta padrão wp-content para outra pasta com outro nome Ex: assets/
+5. Criar um menu usando o Wordpress
+6. Início da implementação do tema Kreo com WP utilizando tema sugerido ou um próprio
+
+## Helpers
+
+- É necessário chamar a paginação no mesmo array de chamada do post type
+- Tem um repositório como alterar o nome da pasta wp-content
+
+/* ================================================================================================== */
+
+#TAREFINHAS
+
 MODULO 1, 2, 3 e 4_1/2
 
 1. Criar post type (qq nome) (colocar em funcions.php dentro do tema)
