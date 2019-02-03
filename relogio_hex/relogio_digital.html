@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Relógio Hexadecimal Digital</title>
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link rel="stylesheet" href="css/digital.css">
+</head>
+
+<body>
+	<div class="relogio">
+		<span class="hour">00</span>:<span class="min">00</span>:<span class="sec">00</span>
+	</div>
+	<script src="js/Clock.js"></script>
+	<script>
+		setInterval(()=>{
+			let clock = new Clock();
+
+		    let hours = clock.hours;
+		    let minutes= clock.minutes;
+		    let seconds = clock.seconds;
+
+			document.querySelector('.hour').textContent = hours;
+			document.querySelector('.min').textContent = minutes;
+			document.querySelector('.sec').textContent = seconds;
+			document.querySelector('.relogio').style.backgroundColor = String('#' + hours + minutes + seconds);
+		}, 1000)
+
+	</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Relógio Hexadecimal Analógico</title>
+	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
+	<link rel="stylesheet" href="css/analogico.css">
+</head>
+<body>
+	<div class="relogio">
+		<div class="pointers">
+			<span class="pont pontH"></span>
+			<span class="pont pontM"></span>
+			<span class="pont pontS"></span>
+			
+			<div class="numbers">
+				<span class="mark mark3">3</span>
+				<span class="mark mark6">6</span>
+				<span class="mark mark9">9</span>
+				<span class="mark mark12">12</span>
+			</div>
+		</div>
+
+	</div>
+
+	<!-- <span class="hour">00</span>:<span class="min">00</span>:<span class="sec">00</span> -->
+	<script src="js/Clock.js"></script>
+	<script>
+		setInterval(()=>{
+			let date = new Date();
+			let clock = new Clock();			
+		    let hours = clock.hours;
+		    let minutes= clock.minutes;
+		    let seconds = clock.seconds;
+		    let hex = String('#' + hours + minutes + seconds);
+			
+			document.querySelector('.relogio').style.backgroundColor = hex;
+			document.querySelector('.pontH').style.transform = 'rotate(' + (30 * hours) + 'deg)';
+			document.querySelector('.pontM').style.transform = 'rotate(' + (6 * minutes) + 'deg)';
+			document.querySelector('.pontS').style.transform = 'rotate(' + (6 * seconds) + 'deg)';
+		}, 1000)
+
+	</script>
+</body>
+</html>
