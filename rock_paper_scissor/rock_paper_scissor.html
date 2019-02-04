@@ -2,31 +2,97 @@
 <html>
 <head>
 	<title>Rock, Paper, Scissors</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
 <body>
 
-	<button class="btn btn-choice-rock">Rock</button>
-	<button class="btn btn-choice-paper">Paper</button>
-	<button class="btn btn-choice-scissor">Scissor</button>
+	<div class="container">
+		<div class="row">
+			<div class="container-game text-center">
+				<section class="col-sm-6">
+					<header><h1 class="title title-name">Your name</h1></header>
+				</section>
+
+				<section class="col-sm-6">
+					<header><h1 class="title title-name-oponent">Oponent</h1></header>
+				</section>
+
+				<button class="btn btn-success btn-choice-rock">Rock</button>
+				<button class="btn btn-success btn-choice-paper">Paper</button>
+				<button class="btn btn-success btn-choice-scissor">Scissor</button>
+			</div>
+		</div>
+	</div>
 
 	<script>
+		var play = {
+			init: function(){
+				this.fillCompetidorsName();
+			},
+			fillCompetidorsName: function(){
+				var name = prompt('Type your name!', '');
+				var competidorName = ['Hitler', 'George W. Bush', 'Sam Fisher', 'Bruce Wayne', 'T\'Challa', 'Jon Jones', 'Bolsonaro'];
+				if(name){
+					document.querySelector('.title-name').textContent = name;
+				}else{
+					document.querySelector('.title-name').textContent = 'Unknown';
+				}
+			},
+		};
+
 		function computerChoice(){
 			var choice = (Math.random() * 10).toFixed(2);
-			console.log('choice: ', choice);
 
 			if(choice < 3.34){
-				console.log('Rock');
-				return 'Rock';
+				return 'rock';
 			}else if(choice > 3.34 && choice < 6.67){
-				console.log('Paper');
-				return 'Paper';
+				return 'paper';
 			}else{
-				console.log('Scissor');
-				return 'Scissor';
+				return 'scissor';
 			}
 		}
 
-		computerChoice();
+		document.querySelector('.btn-choice-rock').addEventListener('click', function(){
+			var choose = computerChoice();
+			if(choose == 'rock'){
+				alert('Draw! Both choosen ROCK!')
+			}else{
+				if(choose == 'paper'){
+					alert('You LOOSE! The oponent choose PAPER.');
+				}else{
+					alert('You WIN! The oponent choose SCISSORS.');
+				}
+			}
+		});
+
+		document.querySelector('.btn-choice-paper').addEventListener('click', function(){
+			var choose = computerChoice();
+			if(choose == 'paper'){
+				alert('Draw! Both choosen PAPER!')
+			}else{
+				if(choose == 'scissors'){
+					alert('You LOOSE! The oponent choose SCISSORS.');
+				}else{
+					alert('You WIN! The oponent choose ROCK.');
+				}
+			}
+		});
+
+
+		document.querySelector('.btn-choice-scissor').addEventListener('click', function(){
+			var choose = computerChoice();
+			if(choose == 'scissors'){
+				alert('Draw! Both choosen SCISSORS!')
+			}else{
+				if(choose == 'rock'){
+					alert('You LOOSE! The oponent choose ROCK.');
+				}else{
+					alert('You WIN! The oponent choose PAPER.');
+				}
+			}
+		});
+
+		play.init();
 	</script>
 </body>
 </html>
