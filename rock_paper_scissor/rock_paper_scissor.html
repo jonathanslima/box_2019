@@ -4,92 +4,211 @@
 	<title>Rock, Paper, Scissors</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 </head>
+
+<style>	
+	.container-game{
+		margin-top: 30px;
+	}
+
+	.container-game section div:first-child{
+		height: 350px;
+		border: 1px solid #333;
+		padding: 15px;
+		padding-top: 0;
+	}
+
+	.box-competidor{
+		
+	}
+
+	.box-competidor .box-competidor-img{
+		width: 	30%;
+		margin: 30px 0;
+	}
+
+	.hand-active{animation: shaking .3s alternate infinite linear;}
+
+	@keyframes shaking{
+	  0%   {transform: translateY(0px);
+	       transform: rotate(-20deg);}
+	  50% {transform: translateY(15px);
+	       transform: rotate(-10deg);}
+	  100% {transform: translateY(30px);
+	       transform: rotate(0deg);}
+	}
+</style>
 <body>
 
 	<div class="container">
 		<div class="row">
 			<div class="container-game text-center">
 				<section class="col-sm-6">
-					<header><h1 class="title title-name">Your name</h1></header>
+					<div class="col-xs-12">	
+						<header><h1 class="title title-name">Your name</h1></header>
+
+						<div class="box-competidor">	
+							<img src="img/rock.png" alt="" class="box-competidor-img hand-shaking">
+						</div>
+
+						<footer>
+							<button class="btn btn-success btn-choice-rock">Rock</button>
+							<button class="btn btn-success btn-choice-paper">Paper</button>
+							<button class="btn btn-success btn-choice-scissor">Scissor</button>
+						</footer>
+					</div>
 				</section>
 
 				<section class="col-sm-6">
-					<header><h1 class="title title-name-oponent">Oponent</h1></header>
+					<div class="col-xs-12">	
+						<header><h1 class="title title-name-oponent">Oponent</h1></header>
+
+						<div class="box-competidor">	
+							<img src="img/rock.png" alt="" class="box-competidor-img hand-shaking-opp">
+						</div>
+					</div>
 				</section>
 
-				<button class="btn btn-success btn-choice-rock">Rock</button>
-				<button class="btn btn-success btn-choice-paper">Paper</button>
-				<button class="btn btn-success btn-choice-scissor">Scissor</button>
+				
 			</div>
 		</div>
 	</div>
 
 	<script>
-		var play = {
+		let handShake, handShakeOpp;
+		let play = {
 			init: function(){
 				this.fillCompetidorsName();
 			},
 			fillCompetidorsName: function(){
-				var name = prompt('Type your name!', '');
-				var competidorName = ['Hitler', 'George W. Bush', 'Sam Fisher', 'Bruce Wayne', 'T\'Challa', 'Jon Jones', 'Bolsonaro'];
+				let name = prompt('Type your name!', '');
+				let competidorName = ['Hitler', 'George W. Bush', 'Sam Fisher', 'Bruce Wayne', 'T\'Challa', 'Jon Jones', 'Bolsonaro'];
 				if(name){
 					document.querySelector('.title-name').textContent = name;
 				}else{
-					document.querySelector('.title-name').textContent = 'Unknown';
+					document.querySelector('.title-name').textContent = 'Mr Nobody';
 				}
 			},
 		};
 
 		function computerChoice(){
-			var choice = (Math.random() * 10).toFixed(2);
+			let choice = (Math.random() * 10).toFixed(2);
 
 			if(choice < 3.34){
+				console.log(choice)
+				console.log('rock');
 				return 'rock';
 			}else if(choice > 3.34 && choice < 6.67){
+				console.log(choice)
+				console.log('paper');
 				return 'paper';
 			}else{
+				console.log(choice)
+				console.log('scissor');
 				return 'scissor';
 			}
 		}
 
+		function stopShaking(){
+			handShake.className = handShake.classList ? 'box-competidor-img hand-shaking' : handShake;
+			handShakeOpp.className = handShakeOpp.classList ? 'box-competidor-img hand-shaking-opp' : handShakeOpp;
+		}
+
 		document.querySelector('.btn-choice-rock').addEventListener('click', function(){
-			var choose = computerChoice();
-			if(choose == 'rock'){
-				alert('Draw! Both choosen ROCK!')
-			}else{
-				if(choose == 'paper'){
-					alert('You LOOSE! The oponent choose PAPER.');
+			let choose = computerChoice();
+			handShake = document.querySelector('.hand-shaking');
+			handShakeOpp = document.querySelector('.hand-shaking-opp');
+
+			handShake.setAttribute('src', 'img/rock.png');
+			handShakeOpp.setAttribute('src', 'img/rock.png');
+
+			handShake.className = handShake.classList ? handShake.classList + ' hand-active' : handShake;
+			handShakeOpp.className = handShakeOpp.classList ? handShakeOpp.classList + ' hand-active' : handShakeOpp;
+
+			setTimeout(function(){
+				if(choose == 'rock'){
+					stopShaking();
+					console.log('Draw! Both choosen ROCK!')
 				}else{
-					alert('You WIN! The oponent choose SCISSORS.');
+					if(choose == 'paper'){
+						stopShaking();
+						handShakeOpp.setAttribute('src', 'img/paper.png');
+						console.log('You LOOSE! The oponent choose PAPER.');
+
+					}else{
+						stopShaking();
+						handShakeOpp.setAttribute('src', 'img/scissors.png')
+						console.log('You WIN! The oponent choose SCISSORS.');
+					}
 				}
-			}
+			}, 1000);
+
 		});
 
 		document.querySelector('.btn-choice-paper').addEventListener('click', function(){
-			var choose = computerChoice();
-			if(choose == 'paper'){
-				alert('Draw! Both choosen PAPER!')
-			}else{
-				if(choose == 'scissors'){
-					alert('You LOOSE! The oponent choose SCISSORS.');
+			let choose = computerChoice();
+			handShake = document.querySelector('.hand-shaking');
+			handShakeOpp = document.querySelector('.hand-shaking-opp');
+
+			handShake.setAttribute('src', 'img/rock.png');
+			handShakeOpp.setAttribute('src', 'img/rock.png');
+
+			handShake.className = handShake.classList ? handShake.classList + ' hand-active' : handShake;
+			handShakeOpp.className = handShakeOpp.classList ? handShakeOpp.classList + ' hand-active' : handShakeOpp;
+
+			setTimeout(function(){
+				if(choose == 'paper'){
+					stopShaking();
+					handShake.setAttribute('src', 'img/paper.png');
+					handShakeOpp.setAttribute('src', 'img/paper.png');
+					console.log('Draw! Both choosen PAPER!')
 				}else{
-					alert('You WIN! The oponent choose ROCK.');
+					if(choose == 'scissors'){
+						stopShaking();
+						handShake.setAttribute('src', 'img/paper.png');
+						handShakeOpp.setAttribute('src', 'img/rock.png')
+						console.log('You WIN! The oponent choose ROCK.');
+					}else{
+						stopShaking();
+						handShake.setAttribute('src', 'img/paper.png');
+						handShakeOpp.setAttribute('src', 'img/scissors.png');
+						console.log('You LOOSE! The oponent choose SCISSORS.');
+					}
 				}
-			}
+			}, 1000);
 		});
 
 
 		document.querySelector('.btn-choice-scissor').addEventListener('click', function(){
-			var choose = computerChoice();
-			if(choose == 'scissors'){
-				alert('Draw! Both choosen SCISSORS!')
-			}else{
-				if(choose == 'rock'){
-					alert('You LOOSE! The oponent choose ROCK.');
+			let choose = computerChoice();
+			handShake = document.querySelector('.hand-shaking');
+			handShakeOpp = document.querySelector('.hand-shaking-opp');
+
+			handShake.setAttribute('src', 'img/rock.png');
+			handShakeOpp.setAttribute('src', 'img/rock.png');
+
+			handShake.className = handShake.classList ? handShake.classList + ' hand-active' : handShake;
+			handShakeOpp.className = handShakeOpp.classList ? handShakeOpp.classList + ' hand-active' : handShakeOpp;
+
+			setTimeout(function(){
+				if(choose == 'scissor'){
+					stopShaking();
+					handShake.setAttribute('src', 'img/scissors.png');
+					handShakeOpp.setAttribute('src', 'img/scissors.png');
+					console.log('Draw! Both choosen SCISSORS!')
 				}else{
-					alert('You WIN! The oponent choose PAPER.');
+					if(choose == 'paper'){
+						stopShaking();
+						handShake.setAttribute('src', 'img/scissors.png');
+						handShakeOpp.setAttribute('src', 'img/paper.png')
+						console.log('You WIN! The oponent choose PAPER.');
+					}else{
+						stopShaking();
+						handShake.setAttribute('src', 'img/scissors.png');
+						handShakeOpp.setAttribute('src', 'img/rock.png');
+						console.log('You LOOSE! The oponent choose ROCK.');
+					}
 				}
-			}
+			}, 1000);
 		});
 
 		play.init();
