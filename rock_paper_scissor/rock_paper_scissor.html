@@ -168,14 +168,18 @@
 				document.querySelector('.score-opponent').textContent = scoreOp;
 
 				if(scoreP1 == 5){
-					document.querySelector('#you-win').style.display = "block";
-					document.querySelector('#bozo-loss').style.display = "block";
-					document.querySelector('.play-again').style.display = "block";
+					setTimeout(function(){
+						document.querySelector('#you-win').style.display = "block";
+						document.querySelector('#bozo-loss').style.display = "block";
+						document.querySelector('.play-again').style.display = "block";
+					}, 1000);
 
 				}else if(scoreOp == 5){
-					document.querySelector('#bozo-win').style.display = "block";
-					document.querySelector('#you-loss').style.display = "block";
-					document.querySelector('.play-again').style.display = "block";
+					setTimeout(function(){
+						document.querySelector('#bozo-win').style.display = "block";
+						document.querySelector('#you-loss').style.display = "block";
+						document.querySelector('.play-again').style.display = "block";
+					}, 1000);
 				}
 			}
 		};
@@ -213,11 +217,11 @@
 			let choose = play.computerChoice();
 			play.hideAlerts();
 			play.startShaking();
-			handShake.setAttribute('src', 'img/paper.png');
 
 			setTimeout(function(){
 				if(choose == 'paper'){
 					play.stopShaking();
+					handShake.setAttribute('src', 'img/paper.png');
 					handShakeOpp.setAttribute('src', 'img/paper.png');
 					document.querySelector('.alert-warning').style.display = 'block';
 					document.querySelector('.alert-warning').textContent = 'Draw! Both choosen PAPER!';
@@ -234,6 +238,7 @@
 						document.querySelector('.alert-danger').textContent = 'You LOOSE! The oponent choose SCISSORS.';
 						play.score(0,1);
 					}
+					handShake.setAttribute('src', 'img/paper.png');
 				}
 			}, 1000);
 		});
@@ -242,11 +247,11 @@
 			let choose = play.computerChoice();
 			play.hideAlerts();
 			play.startShaking();
-			handShake.setAttribute('src', 'img/scissors.png');
 
 			setTimeout(function(){
 				if(choose == 'scissor'){
 					play.stopShaking();
+					handShake.setAttribute('src', 'img/scissors.png');
 					handShakeOpp.setAttribute('src', 'img/scissors.png');
 					document.querySelector('.alert-warning').style.display = 'block';
 					document.querySelector('.alert-warning').textContent = 'Draw! Both choosen SCISSORS!';
@@ -263,6 +268,7 @@
 						document.querySelector('.alert-danger').textContent = 'You LOOSE! The oponent choose ROCK.';
 						play.score(0,1);
 					}
+					handShake.setAttribute('src', 'img/scissors.png');
 				}
 			}, 1000);
 		});
