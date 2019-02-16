@@ -12,6 +12,7 @@
 		.figure{margin: 30px 0}
 		li{margin: 15px 0;}
 		.full-width{width: 100%}
+		img{width: 300px}
 	</style>
 </head>
 <body>
@@ -22,7 +23,7 @@
 					<h1 class="title">Front End Projects 2019</h1>
 				</div>
 
-				<figure class="figure col-xs-12 text-center">
+				<figure class="figure full-width col-xs-12 text-center">
 					<img src="https://cdn-images-1.medium.com/max/1200/1*vT4fCkknydeG480A-zZmTA.png" alt="front end development">
 					<figcaption><i>credits: Medium</i></figcaption>
 				</figure>
