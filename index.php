@@ -20,7 +20,7 @@
 					<h1 class="title">Front End Projects 2019</h1>
 				</div>
 
-				<figure class="figure">
+				<figure class="figure col-xs-12 text-center">
 					<img src="https://cdn-images-1.medium.com/max/1200/1*vT4fCkknydeG480A-zZmTA.png" alt="front end development">
 					<figcaption><i>credits: Medium</i></figcaption>
 				</figure>
