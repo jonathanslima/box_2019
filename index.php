@@ -10,12 +10,13 @@
 		body{font-family: 'Roboto', sans-serif;}
 		.title{font-family: 'Luckiest Guy', cursive; margin-top: 15px}
 		.figure{margin: 30px 0}
+		li{margin: 15px 0;}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="section links">
+			<div class="col-xs-12">
 				<div class="col-xs-12 text-center">
 					<h1 class="title">Front End Projects 2019</h1>
 				</div>
@@ -27,9 +28,9 @@
 
 				<ul class="list col-xs-12">
 					<li><a href="rock_paper_scissor/rock_paper_scissor.html">Rock, Paper or Scissor <btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
-					<li><a href="relogio_hex/relogio_analogico.html">Relógio Hex Analógico<btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
-					<li><a href="relogio_hex/relogio_digital.html">Relógio Hex Digital<btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
-					<li><a href="velocicriptor/criptor.html">Criptografia<btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
+					<li><a href="relogio_hex/relogio_analogico.html">Relógio Hex Analógico <btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
+					<li><a href="relogio_hex/relogio_digital.html">Relógio Hex Digital <btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
+					<li><a href="velocicriptor/criptor.html">Criptografia <btn class="btn btn-primary">HTML, JS, CSS</btn></a></li>
 				</ul>
 			</div>
 		</div>
