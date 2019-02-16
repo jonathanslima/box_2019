@@ -9,7 +9,7 @@
 
 <style>	
 	.container-game{
-		margin-top: 30px;
+		margin-top: 100px;
 	}
 
 	.container-game section div:first-child{
@@ -65,6 +65,14 @@
 	}
 
 	.hand-active{animation: shaking .3s alternate infinite linear;}
+
+	.alert{
+	    position: absolute;
+	    top: 0;
+	    width: 100%;
+	    left: 0;
+	    text-align: center;
+	}
 
 	@keyframes shaking{
 	  0%   {transform: translateY(0px);
@@ -134,12 +142,19 @@
 		let handShake, handShakeOpp, scoreP1 = 0, scoreOp = 0;
 		let play = {
 			init: function(){
-				var username = prompt('type your username: ');
+				var savedName = sessionStorage.getItem('savedName');
 
-				if(username){
-					document.querySelector('.title-name').textContent = username;
+				if(savedName){
+					document.querySelector('.title-name').textContent = savedName;
 				}else{
-					document.querySelector('.title-name').textContent = 'You';
+					var username = prompt('type your username: ');
+
+					if(username){
+						document.querySelector('.title-name').textContent = username;
+						sessionStorage.setItem('savedName', username);
+					}else{
+						document.querySelector('.title-name').textContent = 'You';
+					}
 				}
 			},
 			hideAlerts: function(){
