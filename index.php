@@ -11,12 +11,13 @@
 		.title{font-family: 'Luckiest Guy', cursive; margin-top: 15px}
 		.figure{margin: 30px 0}
 		li{margin: 15px 0;}
+		.full-width{width: 100%}
 	</style>
 </head>
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col-xs-12">
+			<div class="col-xs-12 full-width">
 				<div class="col-xs-12 text-center">
 					<h1 class="title">Front End Projects 2019</h1>
 				</div>
