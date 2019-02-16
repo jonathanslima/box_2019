@@ -97,7 +97,9 @@
 							<button class="btn btn-success btn-choice-paper">Paper</button>
 							<button class="btn btn-success btn-choice-scissor">Scissor</button>
 						</footer>
-						<iframe id="you-win" src="https://gifer.com/embed/6os" width=480 height=984.615 frameBorder="0" allowFullScreen></iframe><p><a href="https://gifer.com">via GIFER</a></p>
+						
+						<div id="you-win" class="tenor-gif-embed" data-postid="5959457" data-share-method="host" data-width="100%" data-aspect-ratio="1.9227799227799227"><a href="https://tenor.com/view/grandma-dab-gif-5959457">Grandma Dab GIF</a> from <a href="https://tenor.com/search/grandma-gifs">Grandma GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 						<div id="you-loss" class="tenor-gif-embed" data-postid="5637398" data-share-method="host" data-width="100%" data-aspect-ratio="1.326241134751773"><a href="https://tenor.com/view/crying-boy-walkaway-cry-man-tears-gif-5637398">Crying Boy GIF</a> from <a href="https://tenor.com/search/crying-gifs">Crying GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 					</div>
 
@@ -132,6 +134,13 @@
 		let handShake, handShakeOpp, scoreP1 = 0, scoreOp = 0;
 		let play = {
 			init: function(){
+				var username = prompt('type your username: ');
+
+				if(username){
+					document.querySelector('.title-name').textContent = username;
+				}else{
+					document.querySelector('.title-name').textContent = 'You';
+				}
 			},
 			hideAlerts: function(){
 				[].slice.call(document.querySelectorAll('.alert')).map(function(i){
