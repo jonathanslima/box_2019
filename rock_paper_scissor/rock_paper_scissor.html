@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<meta charset="utf-8">
 	<title>Rock, Paper, Scissors</title>
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<link href="https://fonts.googleapis.com/css?family=Anton" rel="stylesheet">
@@ -34,7 +35,7 @@
 		margin-top: 15px;
 	}
 
-	#bozo-win, #bozo-loss, #you-win, #you-loss{
+	#oponnent-win, #oponnent-loss, #you-win, #you-loss{
 		position: absolute !important;
 		z-index: 4;
 		display: none;
@@ -106,15 +107,17 @@
 
 				<section class="col-sm-6">
 					<div class="col-xs-12">	
-						<header><h1 class="title title-name-oponent">Bolsonaro</h1></header>
+						<header><h1 class="title title-name-oponent">Opponent</h1></header>
 
 						<div class="box-competidor">	
 							<img src="img/rock.png" alt="" class="box-competidor-img hand-shaking-opp">
 						</div>
 					</div>
-					<div class="tenor-gif-embed" id="bozo-win" data-postid="10813661" data-share-method="host" data-width="100%" data-aspect-ratio="1.797752808988764"><a href="https://tenor.com/view/bolsonaro-2018-gif-10813661">Bolsonaro 2018 GIF</a> from <a href="https://tenor.com/search/bolsonaro-gifs">Bolsonaro GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
 
-					<div class="tenor-gif-embed" id="bozo-loss" data-postid="13193851" data-share-method="host" data-width="100%" data-aspect-ratio="1.7777777777777777"><a href="https://tenor.com/view/bolsonaro-nazare-tedesco-gif-13193851">Bolsonaro Nazare GIF</a> from <a href="https://tenor.com/search/bolsonaro-gifs">Bolsonaro GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+					<div class="tenor-gif-embed" id="oponnent-win" data-postid="5401356" data-share-method="host" data-width="100%" data-aspect-ratio="1.823529411764706"><a href="https://tenor.com/view/champion-rocky-rocky-champion-celebrating-celebrate-gif-5401356">Champion Rocky GIF</a> from <a href="https://tenor.com/search/champion-gifs">Champion GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
+					<div class="tenor-gif-embed" id="oponnent-loss" data-postid="9919713" data-share-method="host" data-width="100%" data-aspect-ratio="1.791044776119403"><a href="https://tenor.com/view/imlost-im-lost-confused-calculate-gif-9919713">Imlost Confused GIF</a> from <a href="https://tenor.com/search/imlost-gifs">Imlost GIFs</a></div><script type="text/javascript" async src="https://tenor.com/embed.js"></script>
+
 					<div class="score score-opponent">0</div>
 				</section>	
 			</div>
@@ -170,13 +173,13 @@
 				if(scoreP1 == 5){
 					setTimeout(function(){
 						document.querySelector('#you-win').style.display = "block";
-						document.querySelector('#bozo-loss').style.display = "block";
+						document.querySelector('#oponnent-loss').style.display = "block";
 						document.querySelector('.play-again').style.display = "block";
 					}, 1000);
 
 				}else if(scoreOp == 5){
 					setTimeout(function(){
-						document.querySelector('#bozo-win').style.display = "block";
+						document.querySelector('#oponnent-win').style.display = "block";
 						document.querySelector('#you-loss').style.display = "block";
 						document.querySelector('.play-again').style.display = "block";
 					}, 1000);
